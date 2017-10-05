@@ -2,8 +2,8 @@
 
 
 define(
-    ["jquery", "die"],
-    function ($, die) {
+    ["jquery", "die","dieView"],
+    function ($, die,dieView) {
 
         var appControl = function () {
             var point = 0;
@@ -11,11 +11,11 @@ define(
             var die2_val = 0;
             var mode = 'justRoll';
             var diceRollHandler = function (die) {
-                switch (die.selector) {
-                    case '.die1':
+                switch (die.id) {
+                    case 'die1':
                         die1_val = die.value;
                         break;
-                    case '.die2':
+                    case 'die2':
                         die2_val = die.value;
                         break;
                 }
@@ -92,12 +92,15 @@ define(
                 $(document).ready(function () {
                     var die1 = new die.control();
                     var die2 = new die.control();
-
-                    die1.init('.die1', {
-                        onChange: diceRollHandler
+                    var dieView1 = new dieView.control();
+                    var dieView2 = new dieView.control();                        
+                    dieView1.init('.die1');
+                    dieView2.init('.die2');
+                    die1.init(dieView1, {
+                        id:'die1', onChange: diceRollHandler
                     });
-                    die2.init('.die2', {
-                        onChange: diceRollHandler
+                    die2.init(dieView2, {
+                        id:'die2', onChange: diceRollHandler
                     });
 
                     $('.options input').on('click', function (e) {

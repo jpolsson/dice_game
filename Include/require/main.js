@@ -8,7 +8,8 @@
         "jquery": "scripts/vendor/jquery-3.1.1.min",
         "underscore": "scripts/vendor/underscore.min",
         "appControl": "scripts/app/appControl",
-        "die": "scripts/app/die"
+        "die": "scripts/app/die",
+        "dieView":"scripts/app/dieView"
     },
     urlArgs: "bust=" + (new Date()).getTime(),
     modules: [
