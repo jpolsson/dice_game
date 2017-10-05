@@ -106,6 +106,7 @@ define(
                     $('.options input').on('click', function (e) {
                         mode = $(e.currentTarget).val();
                     });
+                    $($('.options input')[0]).prop('checked',true);
                     $('.stage').on('click', function (e) {
                         $('.stage h2').html('Rolling...');
                         $('.results').html('');
